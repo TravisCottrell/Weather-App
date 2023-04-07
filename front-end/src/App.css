@@ -1,0 +1,78 @@
+.App {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 30px;
+    height: 100vh;
+}
+
+.test2 {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.clock-container {
+    display: flex;
+}
+.room {
+    font-size: large;
+    margin-left: auto;
+}
+
+.today-week-container {
+    min-width: 40vw;
+    display: flex;
+}
+
+.card {
+    background-color: #4c5e7c;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+.today-card {
+    /* #2e3a51 */
+    /* background-color: #323e53; */
+
+    justify-content: center;
+
+    width: 50%;
+
+    /* border: 2px solid white;
+    border-radius: 20px; */
+}
+
+.today-card h2 {
+    text-align: left;
+    margin: 0px;
+}
+
+.today-card h3 {
+    margin-left: 20px;
+}
+
+.today-card p {
+    margin: 0px 20px;
+}
+
+.week-card {
+    width: 50%;
+}
+
+.hourly-container {
+    height: 9.5em;
+}
