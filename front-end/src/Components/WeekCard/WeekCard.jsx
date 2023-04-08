@@ -20,8 +20,8 @@ export const WeekCard = ({ data, images }) => {
         <div>
             {data.daily
                 .slice(1, 5)
-                .map(({ dt, temp, pop, humidity, weather }) => (
-                    <div className="day">
+                .map(({ dt, temp, pop, humidity, weather }, index) => (
+                    <div className="day" key={index}>
                         <div>
                             <h4>{getWeekDay(dt)}</h4>
                         </div>

@@ -15,14 +15,16 @@ const HourlyCard = ({ data, images }) => {
 
     return (
         <div className="hourly-wrapper">
-            {data.hourly.slice(0, 20).map(({ dt, temp, weather, pop }) => (
-                <div className="hour">
-                    <p>{getHour(dt)}</p>
-                    <img src={images[`_${data.current.weather[0].icon}`]} />
-                    <p>{Math.round(temp)}°</p>
-                    <p>{Math.round(pop * 100)}%</p>
-                </div>
-            ))}
+            {data.hourly
+                .slice(0, 20)
+                .map(({ dt, temp, weather, pop }, index) => (
+                    <div className="hour" key={index}>
+                        <p>{getHour(dt)}</p>
+                        <img src={images[`_${data.current.weather[0].icon}`]} />
+                        <p>{Math.round(temp)}°</p>
+                        <p>{Math.round(pop * 100)}%</p>
+                    </div>
+                ))}
 
             {/* <div className="hour">
                 <p>8 pm</p>

@@ -12,20 +12,18 @@ function App() {
 
     //fetch data from weather api
     const fetchData = async () => {
-        const url =
-            "https://api.openweathermap.org/data/3.0/onecall?lat=41.161&lon=-81.071&exclude=minutely&units=imperial&appid=e4614d6b421411940839e935869622b8";
+        const url = "/api/outdoor";
         const response = await fetch(url);
         const result = await response.json();
-        setData(result);
+        setData(result.data);
     };
 
     const fetchIndoorData = async () => {
-        const url = "http://192.168.50.82:3000/temperature";
+        const url = "/api/indoor";
         const response = await fetch(url);
-
         const result = await response.json();
-        console.log("this is s atre", result);
-        setIndoorData(result);
+
+        setIndoorData(result.data);
     };
 
     //fetch data on initial page load
@@ -34,17 +32,25 @@ function App() {
         fetchData();
     }, []);
 
-    //fetch api data once every 5 minutes
+    //fetch outdoor api data once every 5 minutes
     useEffect(() => {
         //call api every 5 minutes
-        fetchIndoorData();
         const intervalId = setInterval(fetchData, 5 * 60 * 1000);
-
         //clean up timer
         return () => {
             clearInterval(intervalId);
         };
     }, [data]);
+
+    //fetch indoor api data once every 1 minute
+    useEffect(() => {
+        //call api every 1 minute
+        const intervalId = setInterval(fetchIndoorData, 60 * 1000);
+        //clean up timer
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [indoorData]);
 
     return (
         <div className="App">
